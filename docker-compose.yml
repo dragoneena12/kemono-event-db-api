@@ -24,6 +24,7 @@ services:
       default:
         ipv4_address: 10.65.80.73
       nginx_network:
+        ipv4_address: 172.31.0.30
     links:
       - db
     restart: always
