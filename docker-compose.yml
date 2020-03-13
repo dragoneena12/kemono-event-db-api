@@ -23,12 +23,15 @@ services:
     networks:
       default:
         ipv4_address: 10.65.80.73
+      nginx_network:
     links:
       - db
     restart: always
-    
+
 networks:
   default:
     ipam:
       config:
       - subnet: 10.65.80.0/24
+  nginx_network:
+    external: true
