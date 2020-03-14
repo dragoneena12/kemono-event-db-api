@@ -4,10 +4,12 @@ services:
     build: 
       context: .
       dockerfile: ./docker/postgres/Dockerfile
-    ports:
-      - 5432:5432
+    networks:
+      default:
+        ipv4_address: 10.65.80.74
     volumes:
       - ./docker/postgres/init:/docker-entrypoint-initdb.d
+      - ./docker/postgres/data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: django
       POSTGRES_PASSWORD: password
@@ -24,8 +26,6 @@ services:
       default:
         ipv4_address: 10.65.80.73
       nginx_network:
-    links:
-      - db
     restart: always
 
 networks:
