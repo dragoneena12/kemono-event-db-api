@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -143,3 +145,11 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'lhp.Account'
+
+# 許可するオリジン
+CORS_ORIGIN_WHITELIST = [
+    'https://www.lapi.gq',
+    'http://localhost:3000',
+]
+# レスポンスを公開する
+CORS_ALLOW_CREDENTIALS = True
