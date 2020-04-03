@@ -25,7 +25,7 @@ SECRET_KEY = '%x8k=&9(y4$u)3$wxpye%w0@rzy+50d8obmeyy4jaqr=om#@hr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['10.65.80.75', 'lhp.lapi.gq']
+ALLOWED_HOSTS = ['localhost', 'lhp.lapi.gq']
 
 
 # Application definition
@@ -126,6 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 JWT_AUTH = {
     'JWT_VERIFY_EXPIRATION': True,
