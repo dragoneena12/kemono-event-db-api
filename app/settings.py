@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from .settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,14 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%x8k=&9(y4$u)3$wxpye%w0@rzy+50d8obmeyy4jaqr=om#@hr'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['10.65.80.76', 'lhp.lapi.gq']
 
 
 # Application definition
@@ -147,11 +140,3 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'lhp.Account'
-
-# 許可するオリジン
-CORS_ORIGIN_WHITELIST = [
-    'https://www.lapi.gq',
-    'http://localhost:3000',
-]
-# レスポンスを公開する
-CORS_ALLOW_CREDENTIALS = True
