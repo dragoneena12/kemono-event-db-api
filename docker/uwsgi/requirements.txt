@@ -1,0 +1,7 @@
+Django
+psycopg2
+djangorestframework
+django-filter
+djangorestframework-jwt
+django-cors-headers
+uwsgi
