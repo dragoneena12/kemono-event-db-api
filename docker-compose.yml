@@ -49,10 +49,10 @@ services:
       - ./docker/nginx/uwsgi_params:/home/uwsgi_params
       - django-socket:/home/socket
       - .:/code
-    ports:
-      - "8000:8000"
     networks:
-      - nginx_network
+      default:
+        ipv4_address: 10.65.80.76
+      nginx_network:
     depends_on: 
       - django-app
 

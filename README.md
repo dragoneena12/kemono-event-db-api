@@ -11,6 +11,9 @@ https://qiita.com/xKxAxKx/items/60e8fb93d6bbeebcf065
 
 ## やること
 ```
+docker-compose up -d
 docker-compose exec web bash
 python manage.py migrate
 ```
+
+localで開発するときは http://10.65.80.76:8000/admin で接続
