@@ -8,4 +8,4 @@ docker-compose exec web bash
 python manage.py migrate
 ```
 
-localで開発するときは http://10.65.80.76:8000/admin で接続
+localで開発するときは http://10.65.81.76:8000/admin で接続

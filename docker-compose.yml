@@ -1,12 +1,12 @@
-version: '3'
+version: "3"
 services:
   db:
-    build: 
+    build:
       context: .
       dockerfile: ./docker/postgres/Dockerfile
     networks:
       default:
-        ipv4_address: 10.65.80.74
+        ipv4_address: 10.65.81.74
     volumes:
       - ./docker/postgres/init:/docker-entrypoint-initdb.d
       - ./docker/postgres/data:/var/lib/postgresql/data
@@ -15,18 +15,6 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
     restart: always
-  # web:
-  #   build: 
-  #     context: .
-  #     dockerfile: ./docker/django/Dockerfile
-  #   command: python manage.py runserver 0.0.0.0:8000
-  #   volumes:
-  #     - .:/code
-  #   networks:
-  #     default:
-  #       ipv4_address: 10.65.80.73
-  #     nginx_network:
-  #   restart: always
   django-app:
     build:
       context: .
@@ -37,9 +25,9 @@ services:
       - django-socket:/home/socket
     networks:
       default:
-        ipv4_address: 10.65.80.75
+        ipv4_address: 10.65.81.75
     restart: always
-    depends_on: 
+    depends_on:
       - db
 
   django-web:
@@ -51,17 +39,17 @@ services:
       - .:/code
     networks:
       default:
-        ipv4_address: 10.65.80.76
-      nginx_network:
-    depends_on: 
+        ipv4_address: 10.65.81.76
+      kmndb_network:
+    depends_on:
       - django-app
 
 networks:
   default:
     ipam:
       config:
-      - subnet: 10.65.80.0/24
-  nginx_network:
+        - subnet: 10.65.81.0/24
+  kmndb_network:
     external: true
 
 volumes:
